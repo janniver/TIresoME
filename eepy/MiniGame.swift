@@ -12,6 +12,7 @@ enum MiniGame: Hashable {
     case wordScramble
     case tapCounter
     case wordle
+    case pong
     case circleTap
 
     @ViewBuilder
@@ -25,6 +26,8 @@ enum MiniGame: Hashable {
             TapCounterView()
         case .wordle:
             WordleView()
+        case .pong:
+            PongView()
         case .circleTap:
             CircleTapView()
         }
