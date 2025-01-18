@@ -9,9 +9,12 @@ import SwiftUI
 
 struct CompletionView: View {
     @State private var returnHome = false
+    @State private var playGame = false
     var body: some View {
         if returnHome {
             ContentView()
+        } else if playGame {
+            WordleView()
         } else {
             // MARK: Background
             Color.black.ignoresSafeArea()
@@ -26,7 +29,7 @@ struct CompletionView: View {
                 .font(.largeTitle)
                 .padding()
             Button() {
-                returnHome = true
+                playGame = true
             } label: {
                 Text("Stop")
                     .fontWeight(.semibold)
