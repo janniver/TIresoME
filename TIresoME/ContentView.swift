@@ -20,14 +20,13 @@ struct ContentView: View {
             return "It is time to wakey wakey!"
         }
     }
-    
+        
     var body: some View {
         ZStack {
             // MARK: Background
+            Color.black.ignoresSafeArea()
             
-            Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)).ignoresSafeArea()
-            
-            if (Date() > timerManager.endTime + 1) {
+            if Date() > timerManager.endTime + 1 {
                 CompletionView()
             } else {
                 content
@@ -106,8 +105,7 @@ struct ContentView: View {
             
         }
         .foregroundColor(.white)
-    }
-}
+    }}
 
 #Preview {
     ContentView()
