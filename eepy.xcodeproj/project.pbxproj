@@ -24,38 +24,38 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2F07723E2D3B8E920047EEA7 /* TIresoME.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TIresoME.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2F07724E2D3B8E930047EEA7 /* TIresoMETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TIresoMETests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2F0772582D3B8E930047EEA7 /* TIresoMEUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TIresoMEUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F07723E2D3B8E920047EEA7 /* eepy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eepy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F07724E2D3B8E930047EEA7 /* eepyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eepyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F0772582D3B8E930047EEA7 /* eepyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eepyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		2F07745C2D3BC55D0047EEA7 /* Exceptions for "TIresoME" folder in "TIresoME" target */ = {
+		2F07745C2D3BC55D0047EEA7 /* Exceptions for "eepy" folder in "eepy" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = 2F07723D2D3B8E920047EEA7 /* TIresoME */;
+			target = 2F07723D2D3B8E920047EEA7 /* eepy */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		2F0772402D3B8E920047EEA7 /* TIresoME */ = {
+		2F0772402D3B8E920047EEA7 /* eepy */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				2F07745C2D3BC55D0047EEA7 /* Exceptions for "TIresoME" folder in "TIresoME" target */,
+				2F07745C2D3BC55D0047EEA7 /* Exceptions for "eepy" folder in "eepy" target */,
 			);
-			path = TIresoME;
+			path = eepy;
 			sourceTree = "<group>";
 		};
-		2F0772512D3B8E930047EEA7 /* TIresoMETests */ = {
+		2F0772512D3B8E930047EEA7 /* eepyTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = TIresoMETests;
+			path = eepyTests;
 			sourceTree = "<group>";
 		};
-		2F07725B2D3B8E930047EEA7 /* TIresoMEUITests */ = {
+		2F07725B2D3B8E930047EEA7 /* eepyUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = TIresoMEUITests;
+			path = eepyUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -88,9 +88,9 @@
 		2F0772352D3B8E920047EEA7 = {
 			isa = PBXGroup;
 			children = (
-				2F0772402D3B8E920047EEA7 /* TIresoME */,
-				2F0772512D3B8E930047EEA7 /* TIresoMETests */,
-				2F07725B2D3B8E930047EEA7 /* TIresoMEUITests */,
+				2F0772402D3B8E920047EEA7 /* eepy */,
+				2F0772512D3B8E930047EEA7 /* eepyTests */,
+				2F07725B2D3B8E930047EEA7 /* eepyUITests */,
 				2F07723F2D3B8E920047EEA7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -98,9 +98,9 @@
 		2F07723F2D3B8E920047EEA7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2F07723E2D3B8E920047EEA7 /* TIresoME.app */,
-				2F07724E2D3B8E930047EEA7 /* TIresoMETests.xctest */,
-				2F0772582D3B8E930047EEA7 /* TIresoMEUITests.xctest */,
+				2F07723E2D3B8E920047EEA7 /* eepy.app */,
+				2F07724E2D3B8E930047EEA7 /* eepyTests.xctest */,
+				2F0772582D3B8E930047EEA7 /* eepyUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -108,9 +108,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2F07723D2D3B8E920047EEA7 /* TIresoME */ = {
+		2F07723D2D3B8E920047EEA7 /* eepy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2F0772622D3B8E930047EEA7 /* Build configuration list for PBXNativeTarget "TIresoME" */;
+			buildConfigurationList = 2F0772622D3B8E930047EEA7 /* Build configuration list for PBXNativeTarget "eepy" */;
 			buildPhases = (
 				2F07723A2D3B8E920047EEA7 /* Sources */,
 				2F07723B2D3B8E920047EEA7 /* Frameworks */,
@@ -121,18 +121,18 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				2F0772402D3B8E920047EEA7 /* TIresoME */,
+				2F0772402D3B8E920047EEA7 /* eepy */,
 			);
-			name = TIresoME;
+			name = eepy;
 			packageProductDependencies = (
 			);
 			productName = TIresoME;
-			productReference = 2F07723E2D3B8E920047EEA7 /* TIresoME.app */;
+			productReference = 2F07723E2D3B8E920047EEA7 /* eepy.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2F07724D2D3B8E930047EEA7 /* TIresoMETests */ = {
+		2F07724D2D3B8E930047EEA7 /* eepyTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2F0772652D3B8E930047EEA7 /* Build configuration list for PBXNativeTarget "TIresoMETests" */;
+			buildConfigurationList = 2F0772652D3B8E930047EEA7 /* Build configuration list for PBXNativeTarget "eepyTests" */;
 			buildPhases = (
 				2F07724A2D3B8E930047EEA7 /* Sources */,
 				2F07724B2D3B8E930047EEA7 /* Frameworks */,
@@ -144,18 +144,18 @@
 				2F0772502D3B8E930047EEA7 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				2F0772512D3B8E930047EEA7 /* TIresoMETests */,
+				2F0772512D3B8E930047EEA7 /* eepyTests */,
 			);
-			name = TIresoMETests;
+			name = eepyTests;
 			packageProductDependencies = (
 			);
 			productName = TIresoMETests;
-			productReference = 2F07724E2D3B8E930047EEA7 /* TIresoMETests.xctest */;
+			productReference = 2F07724E2D3B8E930047EEA7 /* eepyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		2F0772572D3B8E930047EEA7 /* TIresoMEUITests */ = {
+		2F0772572D3B8E930047EEA7 /* eepyUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2F0772682D3B8E930047EEA7 /* Build configuration list for PBXNativeTarget "TIresoMEUITests" */;
+			buildConfigurationList = 2F0772682D3B8E930047EEA7 /* Build configuration list for PBXNativeTarget "eepyUITests" */;
 			buildPhases = (
 				2F0772542D3B8E930047EEA7 /* Sources */,
 				2F0772552D3B8E930047EEA7 /* Frameworks */,
@@ -167,13 +167,13 @@
 				2F07725A2D3B8E930047EEA7 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				2F07725B2D3B8E930047EEA7 /* TIresoMEUITests */,
+				2F07725B2D3B8E930047EEA7 /* eepyUITests */,
 			);
-			name = TIresoMEUITests;
+			name = eepyUITests;
 			packageProductDependencies = (
 			);
 			productName = TIresoMEUITests;
-			productReference = 2F0772582D3B8E930047EEA7 /* TIresoMEUITests.xctest */;
+			productReference = 2F0772582D3B8E930047EEA7 /* eepyUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -199,7 +199,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2F0772392D3B8E920047EEA7 /* Build configuration list for PBXProject "TIresoME" */;
+			buildConfigurationList = 2F0772392D3B8E920047EEA7 /* Build configuration list for PBXProject "eepy" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -215,9 +215,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2F07723D2D3B8E920047EEA7 /* TIresoME */,
-				2F07724D2D3B8E930047EEA7 /* TIresoMETests */,
-				2F0772572D3B8E930047EEA7 /* TIresoMEUITests */,
+				2F07723D2D3B8E920047EEA7 /* eepy */,
+				2F07724D2D3B8E930047EEA7 /* eepyTests */,
+				2F0772572D3B8E930047EEA7 /* eepyUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -273,12 +273,12 @@
 /* Begin PBXTargetDependency section */
 		2F0772502D3B8E930047EEA7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2F07723D2D3B8E920047EEA7 /* TIresoME */;
+			target = 2F07723D2D3B8E920047EEA7 /* eepy */;
 			targetProxy = 2F07724F2D3B8E930047EEA7 /* PBXContainerItemProxy */;
 		};
 		2F07725A2D3B8E930047EEA7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2F07723D2D3B8E920047EEA7 /* TIresoME */;
+			target = 2F07723D2D3B8E920047EEA7 /* eepy */;
 			targetProxy = 2F0772592D3B8E930047EEA7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -411,9 +411,10 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"TIresoME/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"eepy/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = eepy;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -425,7 +426,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = janniver.TIresoME;
+				PRODUCT_BUNDLE_IDENTIFIER = janniver.eepy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -441,9 +442,10 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"TIresoME/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"eepy/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = eepy;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -455,7 +457,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = janniver.TIresoME;
+				PRODUCT_BUNDLE_IDENTIFIER = janniver.eepy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -477,7 +479,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TIresoME.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TIresoME";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/eepy.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/eepy";
 			};
 			name = Debug;
 		};
@@ -495,7 +497,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TIresoME.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TIresoME";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/eepy.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/eepy";
 			};
 			name = Release;
 		};
@@ -534,7 +536,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2F0772392D3B8E920047EEA7 /* Build configuration list for PBXProject "TIresoME" */ = {
+		2F0772392D3B8E920047EEA7 /* Build configuration list for PBXProject "eepy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2F0772602D3B8E930047EEA7 /* Debug */,
@@ -543,7 +545,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2F0772622D3B8E930047EEA7 /* Build configuration list for PBXNativeTarget "TIresoME" */ = {
+		2F0772622D3B8E930047EEA7 /* Build configuration list for PBXNativeTarget "eepy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2F0772632D3B8E930047EEA7 /* Debug */,
@@ -552,7 +554,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2F0772652D3B8E930047EEA7 /* Build configuration list for PBXNativeTarget "TIresoMETests" */ = {
+		2F0772652D3B8E930047EEA7 /* Build configuration list for PBXNativeTarget "eepyTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2F0772662D3B8E930047EEA7 /* Debug */,
@@ -561,7 +563,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2F0772682D3B8E930047EEA7 /* Build configuration list for PBXNativeTarget "TIresoMEUITests" */ = {
+		2F0772682D3B8E930047EEA7 /* Build configuration list for PBXNativeTarget "eepyUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2F0772692D3B8E930047EEA7 /* Debug */,
