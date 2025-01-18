@@ -20,7 +20,7 @@ enum MiniGame: Hashable {
         case .sliderMatch:
             SliderMatchView()
         case .wordScramble:
-            WordScrambleView(isAlarmStopped: isAlarmStopped)
+            WordScrambleView()
         case .tapCounter:
             TapCounterView()
         case .wordle:

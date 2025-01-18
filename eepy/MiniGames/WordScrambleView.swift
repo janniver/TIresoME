@@ -8,66 +8,77 @@
 import SwiftUI
 
 struct WordScrambleView: View {
-    @State private var word = "APPLE"
+    @State private var chosenWord : String = ""
+    @State private var words: Set<String> = Set()
     @State private var scrambledWord = ""
     @State private var userAnswer: String = ""
     @State private var isGameOver = false
-    @Binding var isAlarmStopped: Bool
+    @State private var isCorrect = false
+    @State private var isAlarmStopped: Bool = false
 
     var body: some View {
         ZStack {
-            Color.black.ignoresSafeArea()
-
-            if isGameOver {
-                VStack {
-                    Button("Stop Alarm") {
-                        isAlarmStopped = true
-                    }
-                    .fontWeight(.semibold)
-                    .font(.title2)
-                    .padding(.horizontal, 24)
-                    .padding(.vertical, 8)
-                    .background(.thinMaterial)
-                    .cornerRadius(20)
-                    .foregroundColor(.white)
-                }
+            if isAlarmStopped {
+                ContentView()
             } else {
-                VStack(spacing: 20) {
-                    Spacer()
+                Color.black.ignoresSafeArea()
 
-                    Text("Unscramble the word:")
-                        .font(.headline)
+                if isGameOver {
+                    VStack {
+                        Button(isCorrect ? "Stop Alarm" : "Try Again") {
+                            if isCorrect {
+                                isAlarmStopped = true
+                            } else {
+                                isGameOver = false
+                                setupGame()
+                            }
+                        }
+                        .fontWeight(.semibold)
+                        .font(.title2)
+                        .padding(.horizontal, 24)
+                        .padding(.vertical, 8)
+                        .background(.thinMaterial)
+                        .cornerRadius(20)
                         .foregroundColor(.white)
-
-                    Text(scrambledWord)
-                        .font(.largeTitle)
-                        .bold()
-                        .foregroundColor(.white)
-
-                    TextField("Type your answer here", text: $userAnswer)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding()
-
-                    Button("Submit") {
-                        checkAnswer()
                     }
-                    .fontWeight(.semibold)
-                    .padding(.horizontal, 24)
-                    .padding(.vertical, 8)
-                    .cornerRadius(20)
-                    .foregroundColor(.white)
-                    .background(
-                        RoundedRectangle(cornerRadius: 20)
-                            .fill(
-                                LinearGradient(
-                                    gradient: Gradient(colors: [Color.orange, Color.purple]),
-                                    startPoint: .leading,
-                                    endPoint: .trailing
-                                )
-                            )
-                    )
+                } else {
+                    VStack(spacing: 60) {
+                        Spacer()
 
-                    Spacer()
+                        Text("Unscramble:")
+                            .font(.headline)
+                            .foregroundColor(.white)
+
+                        Text(scrambledWord.map { String($0) }.joined(separator: "   "))
+                            .font(.largeTitle)
+                            .bold()
+                            .foregroundColor(.white)
+
+                        TextField("Type your answer here", text: $userAnswer)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .padding(.horizontal, 100)
+
+                        Button("Submit") {
+                            checkAnswer()
+                        }
+                        .fontWeight(.semibold)
+                        .padding(.horizontal, 24)
+                        .padding(.vertical, 8)
+                        .cornerRadius(20)
+                        .foregroundColor(.white)
+                        .background(
+                            RoundedRectangle(cornerRadius: 20)
+                                .fill(
+                                    LinearGradient(
+                                        gradient: Gradient(colors: [Color.orange, Color.purple]),
+                                        startPoint: .leading,
+                                        endPoint: .trailing
+                                    )
+                                )
+                        )
+
+                        Spacer()
+                    }
                 }
             }
         }
@@ -77,22 +88,44 @@ struct WordScrambleView: View {
     }
 
     func setupGame() {
-        let words = ["APPLE", "ORANGE", "BANANA", "RAMBUTAN", "DURIAN"]
-        word = words.randomElement()!
-        scrambledWord = String(word.shuffled())
+        
+        guard
+          let fileUrl = Bundle.main.url(forResource: "common-words-5", withExtension: "txt"),
+          let fileContents = try? String(contentsOf: fileUrl, encoding: .utf8) else {
+            return
+          }
+        
+        // Split the content into words and store them in a Set to avoid duplicates
+        words = Set(fileContents.split { $0.isWhitespace || $0.isNewline }.map { String($0) })
+        
+        // Check if there are any words in the set
+        if words.isEmpty {
+            return
+        }
+        
+        // Select a random word from the set
+        if let randomWord = words.randomElement() {
+            chosenWord = randomWord
+        }
+        
+        print(chosenWord)
+
+        scrambledWord = String(chosenWord.shuffled())
         userAnswer = ""
         isGameOver = false
     }
 
     func checkAnswer() {
-        if userAnswer.uppercased() == word {
-            isGameOver = true
+        let sortedString1 = userAnswer.lowercased().sorted()
+        let sortedString2 = chosenWord.lowercased().sorted()
+        if sortedString1 == sortedString2 && words.contains(userAnswer.lowercased()) {
+            isCorrect = true
         }
+        
+        isGameOver = true
     }
 }
 
-struct WordScrambleView_Previews: PreviewProvider {
-    static var previews: some View {
-        WordScrambleView(isAlarmStopped: .constant(false))
-    }
+#Preview {
+    WordScrambleView()
 }
