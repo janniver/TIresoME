@@ -20,11 +20,13 @@ struct ProgressRing: View {
             
             // MARK: Colored Ring
             
+            let time = timerManager.progress == 0.0 ? 1.0 : 0.01
+            
             Circle()
                 .trim(from: 0.0, to: min(timerManager.progress, 1.0))
                 .stroke(AngularGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 1, green: 0.6235, blue: 0.0392, alpha: 1)), Color(#colorLiteral(red: 1, green: 0.6235, blue: 0.0392, alpha: 1)), Color(#colorLiteral(red: 0.7490, green: 0.3529, blue: 0.9490, alpha: 1)), Color(#colorLiteral(red: 0.7490, green: 0.3529, blue: 0.9490, alpha: 1)), Color(#colorLiteral(red: 0.7490, green: 0.3529, blue: 0.9490, alpha: 1)), Color(#colorLiteral(red: 1, green: 0.6235, blue: 0.0392, alpha: 1)), Color(#colorLiteral(red: 1, green: 0.6235, blue: 0.0392, alpha: 1))]), center: .center), style: StrokeStyle(lineWidth: 15.0, lineCap: .round, lineJoin: .round))
                 .rotationEffect((Angle(degrees: 270)))
-                .animation(.easeInOut(duration:1.0), value: min(timerManager.progress, 1.0))
+                .animation(.easeInOut(duration: time), value: min(timerManager.progress, time))
             
             VStack(spacing: 30) {
                 // MARK: Elapsed Time

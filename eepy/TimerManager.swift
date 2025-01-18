@@ -107,7 +107,7 @@ class TimerManager: ObservableObject {
     func startUpdatingTime() {
         timer?.invalidate()
         
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
             guard let self = self else { return }
             
             // Update `startTime` and calculate `endTime`
@@ -121,7 +121,7 @@ class TimerManager: ObservableObject {
     func stopUpdatingTime() {
         timer?.invalidate()
         
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { [weak self] _ in
             guard let self = self else { return }
             
             let elapsedTime = Date().timeIntervalSince(self.startTime)
