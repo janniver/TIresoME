@@ -8,18 +8,30 @@
 import SwiftUI
 
 struct CompletionView: View {
+    @State private var returnHome = false
     var body: some View {
+        if returnHome {
+            ContentView()
+        } else {
+            content
+        }
+    }
+    
+    var content: some View {
         VStack {
             Text("Time's Up!")
                 .font(.largeTitle)
                 .padding()
-            Button("Back to Home") {
-                // Handle navigation logic, if any
+            Button() {
+                returnHome = true
+            } label: {
+                Text("Stop")
+                    .fontWeight(.semibold)
+                    .padding(.horizontal, 24)
+                    .padding(.vertical, 8)
+                    .background(.thinMaterial)
+                    .cornerRadius(20)
             }
-            .padding()
-            .background(Color.blue)
-            .foregroundColor(.white)
-            .cornerRadius(10)
         }
     }
 }

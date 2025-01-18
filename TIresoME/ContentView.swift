@@ -27,7 +27,11 @@ struct ContentView: View {
             
             Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)).ignoresSafeArea()
             
-            content
+            if (Date() > timerManager.endTime + 1) {
+                CompletionView()
+            } else {
+                content
+            }
         }
     }
     
@@ -41,12 +45,16 @@ struct ContentView: View {
             
             // MARK: Sleeping Plan
             
-            Text(timerManager.timerDuration.rawValue)
-                .fontWeight(.semibold)
-                .padding(.horizontal, 24)
-                .padding(.vertical, 8)
-                .background(.thinMaterial)
-                .cornerRadius(20)
+            Button {
+                timerManager.selectDuration()
+            } label: {
+                Text(timerManager.timerDuration.rawValue)
+                    .fontWeight(.semibold)
+                    .padding(.horizontal, 24)
+                    .padding(.vertical, 8)
+                    .background(.thinMaterial)
+                    .cornerRadius(20)
+            }
             
             
             // MARK: Progress Ring
