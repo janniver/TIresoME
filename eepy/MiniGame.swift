@@ -23,7 +23,7 @@ enum MiniGame: Hashable {
         case .tapCounter:
             TapCounterView(isAlarmStopped: isAlarmStopped)
         case .wordle:
-            WordleView() // Add this implementation when WordleView is ready
+            WordleView(isAlarmStopped: isAlarmStopped)
         }
     }
 }
