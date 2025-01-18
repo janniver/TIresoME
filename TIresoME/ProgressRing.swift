@@ -22,7 +22,7 @@ struct ProgressRing: View {
             
             Circle()
                 .trim(from: 0.0, to: min(timerManager.progress, 1.0))
-                .stroke(AngularGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 1, green: 0.597982645, blue: 0.1653974652, alpha: 1)), Color(#colorLiteral(red: 1, green: 0.597982645, blue: 0.1653974652, alpha: 1)), Color(#colorLiteral(red: 0.3780175447, green: 0.614254117, blue: 1, alpha: 1)), Color(#colorLiteral(red: 0.3780175447, green: 0.614254117, blue: 1, alpha: 1)), Color(#colorLiteral(red: 0.3780175447, green: 0.614254117, blue: 1, alpha: 1)), Color(#colorLiteral(red: 1, green: 0.597982645, blue: 0.1653974652, alpha: 1)), Color(#colorLiteral(red: 1, green: 0.597982645, blue: 0.1653974652, alpha: 1))]), center: .center), style: StrokeStyle(lineWidth: 15.0, lineCap: .round, lineJoin: .round))
+                .stroke(AngularGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 1, green: 0.6235, blue: 0.0392, alpha: 1)), Color(#colorLiteral(red: 1, green: 0.6235, blue: 0.0392, alpha: 1)), Color(#colorLiteral(red: 0.7490, green: 0.3529, blue: 0.9490, alpha: 1)), Color(#colorLiteral(red: 0.7490, green: 0.3529, blue: 0.9490, alpha: 1)), Color(#colorLiteral(red: 0.7490, green: 0.3529, blue: 0.9490, alpha: 1)), Color(#colorLiteral(red: 1, green: 0.6235, blue: 0.0392, alpha: 1)), Color(#colorLiteral(red: 1, green: 0.6235, blue: 0.0392, alpha: 1))]), center: .center), style: StrokeStyle(lineWidth: 15.0, lineCap: .round, lineJoin: .round))
                 .rotationEffect((Angle(degrees: 270)))
                 .animation(.easeInOut(duration:1.0), value: min(timerManager.progress, 1.0))
             

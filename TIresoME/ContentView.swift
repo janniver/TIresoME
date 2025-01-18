@@ -9,17 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var timerManager = TimerManager()
-    
-    var title: String {
-        switch timerManager.timerState {
-        case .idle:
-            return "Are you ready for a good night's sleep?"
-        case .running:
-            return "You should now be sound asleep!"
-        case .stopped:
-            return "It is time to wakey wakey!"
-        }
-    }
         
     var body: some View {
         ZStack {
@@ -36,12 +25,6 @@ struct ContentView: View {
     
     var content: some View {
         VStack(spacing: 60) {
-            // MARK: Title
-            
-            Text(title)
-                .font(.headline)
-                .foregroundColor(Color(#colorLiteral(red: 1, green: 0.597982645, blue: 0.1653974652, alpha: 1)))
-            
             // MARK: Sleeping Plan
             
             Button {
@@ -68,7 +51,7 @@ struct ContentView: View {
                     Text(timerManager.timerState == .running ? "Started" : "Start")
                         .opacity(0.7)
                     
-                    Text(timerManager.startTime, format: .dateTime.weekday().hour().minute().second())
+                    Text(timerManager.startTime, format: .dateTime.weekday().hour().minute())
                         .fontWeight(.bold)
                     
                 }
@@ -79,7 +62,7 @@ struct ContentView: View {
                     Text(timerManager.timerState == .running ? "Ends" : "End")
                         .opacity(0.7)
                     
-                    Text(timerManager.endTime, format: .dateTime.weekday().hour().minute().second())
+                    Text(timerManager.endTime, format: .dateTime.weekday().hour().minute())
                         .fontWeight(.bold)
                     
                 }
@@ -90,16 +73,16 @@ struct ContentView: View {
             Button {
                 timerManager.toggleTimerState()
             } label: {
-                Text(timerManager.timerState == .running ? "Wake Up" : "Start Sleep")
+                Text(timerManager.timerState == .running ? "Stop Alarm" : "Start Sleep")
                     .font(.title3)
                     .fontWeight(.semibold)
                     .padding(.horizontal, 24)
                     .padding(.vertical, 8)
-                    .background(.thinMaterial)
+//                    .background(.thinMaterial)
                     .cornerRadius(20)
                     .background(
                         RoundedRectangle(cornerRadius: 20)
-                            .fill(timerManager.timerState == .running ? .red : .blue)
+                            .fill(timerManager.timerState == .running ? Color(#colorLiteral(red: 1, green: 0.6235, blue: 0.0392, alpha: 1)) : Color(#colorLiteral(red: 0.7490, green: 0.3529, blue: 0.9490, alpha: 1)))
                     )
             }
             
