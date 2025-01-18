@@ -33,11 +33,10 @@ struct ProgressRing: View {
                     Text("Elapsed Time")
                         .opacity(0.7)
                     
-                    Text(timerManager.startTime, style: .timer)
+                    Text(formatTime(min(Date().timeIntervalSince(timerManager.startTime), timerManager.timerDuration.duration)))
                         .font(.title)
                         .fontWeight(.bold)
                 }
-                .padding(.top)
                 
                 // MARK: Remaining Time
                 
@@ -45,7 +44,7 @@ struct ProgressRing: View {
                     Text("Remaining Time")
                         .opacity(0.7)
                     
-                    Text(timerManager.endTime, style: .timer)
+                    Text(formatTime(max(timerManager.endTime.timeIntervalSince(Date()) + 1, 0)))
                         .font(.title)
                         .fontWeight(.bold)
                 }
@@ -53,6 +52,13 @@ struct ProgressRing: View {
         }
         .frame(width: 250, height: 250)
         .padding()
+    }
+    
+    private func formatTime(_ timeInterval: TimeInterval) -> String {
+        let hours = Int(timeInterval) / 3600
+        let minutes = (Int(timeInterval) % 3600) / 60
+        let seconds = Int(timeInterval) % 60
+        return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
     }
 
 }
