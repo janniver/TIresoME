@@ -9,30 +9,42 @@ import SwiftUI
 
 struct CompletionView: View {
     @State private var returnHome = false
-    @State private var playGame = false
+    @State private var selectedGame: MiniGame?
+    private let miniGames: [MiniGame] = [
+        .sliderMatch,
+        .wordScramble,
+        .tapCounter,
+        .wordle
+    ]
+
     var body: some View {
         if returnHome {
-            ContentView()
-        } else if playGame {
-            WordleView()
+            ContentView() // Navigate back to home content
         } else {
-            // MARK: Background
-            Color.black.ignoresSafeArea()
-            
-            content
+            ZStack {
+                Color.black.ignoresSafeArea()
+
+                if let game = selectedGame {
+                    game.getView(isAlarmStopped: $returnHome)
+                } else {
+                    defaultContent
+                }
+            }
         }
     }
-    
-    var content: some View {
+
+    var defaultContent: some View {
         VStack {
-            Text("Time's Up!")
-                .font(.largeTitle)
-                .padding()
-            Button() {
-                playGame = true
+//            Text("Time's Up!")
+//                .font(.largeTitle)
+//                .padding()
+
+            Button {
+                selectedGame = miniGames.randomElement()
             } label: {
-                Text("Stop")
+                Text("Play Game")
                     .fontWeight(.semibold)
+                    .font(.title2)
                     .padding(.horizontal, 24)
                     .padding(.vertical, 8)
                     .background(.thinMaterial)
