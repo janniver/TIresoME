@@ -12,18 +12,21 @@ enum MiniGame: Hashable {
     case wordScramble
     case tapCounter
     case wordle
+    case circleTap
 
     @ViewBuilder
     func getView(isAlarmStopped: Binding<Bool>) -> some View {
         switch self {
         case .sliderMatch:
-            SliderMatchView(isAlarmStopped: isAlarmStopped)
+            SliderMatchView()
         case .wordScramble:
             WordScrambleView(isAlarmStopped: isAlarmStopped)
         case .tapCounter:
-            TapCounterView(isAlarmStopped: isAlarmStopped)
+            TapCounterView()
         case .wordle:
             WordleView(isAlarmStopped: isAlarmStopped)
+        case .circleTap:
+            CircleTapView()
         }
     }
 }

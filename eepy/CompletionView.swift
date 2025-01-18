@@ -14,7 +14,7 @@ struct CompletionView: View {
         .sliderMatch,
         .wordScramble,
         .tapCounter,
-        .wordle
+        .wordle,
     ]
 
     var body: some View {

@@ -11,63 +11,72 @@ struct SliderMatchView: View {
     @State private var targetValue = Int.random(in: 0...100)
     @State private var sliderValue: Double = 50
     @State private var timeRemaining = 10
-    @State private var isGameOver = false
-    @State private var isSuccessful = false
-    @Binding var isAlarmStopped: Bool // Binding to communicate with the parent view
+    @State private var isGameOver: Bool = false
+    @State private var isSuccessful: Bool = false
+    @State private var isAlarmStopped: Bool = false
 
     var body: some View {
         ZStack {
-            Color.black.ignoresSafeArea()
-
-            VStack(spacing: 20) {
-                Spacer()
-
-                if isGameOver {
-                    Button(isSuccessful ? "Stop Alarm" : "Try Again") {
-                        if isSuccessful {
-                            isAlarmStopped = true // Notify the parent view to stop the alarm
-                        } else {
-                            resetGame()
+            if isAlarmStopped {
+                ContentView()
+            } else {
+                Color.black.ignoresSafeArea()
+                
+                VStack(spacing: 20) {
+                    if isGameOver {
+                        Button(isSuccessful ? "Stop Alarm" : "Try Again") {
+                            if isSuccessful {
+                                isAlarmStopped = true
+                            } else {
+                                resetGame()
+                            }
                         }
-                    }
-                    .fontWeight(.semibold)
-                    .font(.title2)
-                    .padding(.horizontal, 24)
-                    .padding(.vertical, 8)
-                    .background(.thinMaterial)
-                    .cornerRadius(20)
-                    .foregroundColor(.white)
-//                    .background(
-//                        RoundedRectangle(cornerRadius: 20)
-//                            .fill(
-//                                LinearGradient(
-//                                    gradient: Gradient(colors: [Color.orange, Color.purple]),
-//                                    startPoint: .leading,
-//                                    endPoint: .trailing
-//                                )
-//                            )
-//                    )
-                } else {
-                    Text("Target: \(targetValue)")
-                        .font(.title)
-                        .foregroundColor(.white)
-                        .padding()
-
-                    Slider(value: $sliderValue, in: 0...100, step: 1)
-                        .accentColor(.blue)
-                        .padding(.horizontal, 40)
-
-                    Text("Current: \(Int(sliderValue))")
-                        .font(.headline)
-                        .foregroundColor(.white)
-
-                    Text("Time Remaining: \(timeRemaining)s")
+                        .fontWeight(.semibold)
                         .font(.title2)
-                        .foregroundColor(.orange)
-                        .padding()
+                        .padding(.horizontal, 24)
+                        .padding(.vertical, 8)
+                        .background(.thinMaterial)
+                        .cornerRadius(20)
+                        .foregroundColor(.white)
+                    } else {
+                        
+                        Text("\(targetValue)")
+                            .font(.system(size: 150))
+                            .bold()
+                            .foregroundColor(.white)
+                        
+                        Text("Time Remaining: \(timeRemaining)s")
+                            .font(.title2)
+                            .foregroundColor(Color.orange)
+                        
+                        Slider(value: $sliderValue, in: 0...100, step: 1)
+                            .accentColor(.clear)
+                            .padding(.horizontal, 40)
+                            .overlay(
+                                LinearGradient(
+                                    gradient: Gradient(colors: [.red, .blue]),
+                                    startPoint: .leading,
+                                    endPoint: .trailing
+                                )
+                                .mask(
+                                    Capsule()
+                                        .padding(.horizontal, 40)
+                                )
+                                .frame(height: 6)
+                            )
+                            .overlay(
+                                    Circle()  // Custom slider knob
+                                        .foregroundColor(.white)
+                                        .shadow(radius: 3)
+                                        .frame(width: 28, height: 28)
+                                        .offset(x: CGFloat(sliderValue) / 100 * (UIScreen.main.bounds.width - 108) - (UIScreen.main.bounds.width - 108) / 2)  // Position knob
+                                )
+                        
+                        Text("\(Int(sliderValue))")
+                            .font(.title2)
+                            .foregroundColor(.white)
+                    }
                 }
-
-                Spacer()
             }
         }
         .onAppear(perform: startTimer)
@@ -95,8 +104,6 @@ struct SliderMatchView: View {
     }
 }
 
-struct SliderMatchView_Previews: PreviewProvider {
-    static var previews: some View {
-        SliderMatchView(isAlarmStopped: .constant(false))
-    }
+#Preview {
+    SliderMatchView()
 }
