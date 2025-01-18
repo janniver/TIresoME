@@ -1,11 +1,9 @@
-//
-//  ContentView.swift
-//  TIresoME
-//
-//  Created by Kailash Gautham on 18/1/25.
-//
-
 import SwiftUI
+
+enum CurrentScreen {
+  case alarmClock
+  case wordleGame
+}
 
 struct ContentView: View {
     @StateObject var timerManager = TimerManager()
@@ -90,6 +88,8 @@ struct ContentView: View {
         .foregroundColor(.white)
     }}
 
-#Preview {
+struct ContentView_Previews: PreviewProvider {
+  static var previews: some View {
     ContentView()
+  }
 }
