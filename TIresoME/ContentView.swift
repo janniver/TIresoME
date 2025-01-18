@@ -1,24 +1,57 @@
-//
-//  ContentView.swift
-//  TIresoME
-//
-//  Created by Kailash Gautham on 18/1/25.
-//
-
 import SwiftUI
 
-struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
-    }
+enum CurrentScreen {
+  case alarmClock
+  case wordleGame
 }
 
-#Preview {
+struct ContentView: View {
+    
+  @StateObject var game = GuessingGame()
+  @State private var currentScreen: CurrentScreen = .alarmClock
+  @State private var showStats = false
+
+  var body: some View {
+      Group {
+          switch currentScreen {
+          case .alarmClock:
+              VStack {
+                  Text("Alarm Clock")
+                      .font(.title)
+                      .accessibilityAddTraits(.isHeader)
+                  Button(action: {
+                      print("Before: \(currentScreen)")
+                        self.currentScreen = .wordleGame
+                        print("After: \(currentScreen)")
+                  }) {
+                      Text("Switch Off Alarm")
+                  }
+                  .buttonStyle(.bordered)
+              }
+              .frame(alignment: .top)
+              .padding([.bottom], 10)
+          case .wordleGame:
+              VStack {
+                  Text("Guess The Word")
+                      .font(.title)
+                      .accessibilityAddTraits(.isHeader)
+                  GameBoardView(game: game)
+                  KeyboardView(game: game)
+                      .padding(5)
+                  ActionBarView(
+                    showStats: $showStats,
+                    game: game
+                  )
+              }
+              .frame(alignment: .top)
+              .padding([.bottom], 10)
+          }
+      }
+  }
+}
+
+struct ContentView_Previews: PreviewProvider {
+  static var previews: some View {
     ContentView()
+  }
 }

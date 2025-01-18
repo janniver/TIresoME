@@ -29,9 +29,22 @@
 		2F0772582D3B8E930047EEA7 /* TIresoMEUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TIresoMEUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		2F07745C2D3BC55D0047EEA7 /* Exceptions for "TIresoME" folder in "TIresoME" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 2F07723D2D3B8E920047EEA7 /* TIresoME */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		2F0772402D3B8E920047EEA7 /* TIresoME */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				2F07745C2D3BC55D0047EEA7 /* Exceptions for "TIresoME" folder in "TIresoME" target */,
+			);
 			path = TIresoME;
 			sourceTree = "<group>";
 		};
@@ -192,6 +205,8 @@
 			knownRegions = (
 				en,
 				Base,
+				"Base 2",
+				"base 2",
 			);
 			mainGroup = 2F0772352D3B8E920047EEA7;
 			minimizedProjectReferenceProxies = 1;
