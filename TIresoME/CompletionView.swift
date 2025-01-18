@@ -13,6 +13,9 @@ struct CompletionView: View {
         if returnHome {
             ContentView()
         } else {
+            // MARK: Background
+            Color.black.ignoresSafeArea()
+            
             content
         }
     }
@@ -33,6 +36,7 @@ struct CompletionView: View {
                     .cornerRadius(20)
             }
         }
+        .foregroundColor(.white)
     }
 }
 

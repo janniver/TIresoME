@@ -23,12 +23,12 @@ struct ContentView: View {
         
     var body: some View {
         ZStack {
-            // MARK: Background
-            Color.black.ignoresSafeArea()
-            
             if Date() > timerManager.endTime + 1 {
                 CompletionView()
             } else {
+                // MARK: Background
+                Color.black.ignoresSafeArea()
+                
                 content
             }
         }
