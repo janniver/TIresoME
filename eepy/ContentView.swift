@@ -10,7 +10,7 @@ struct ContentView: View {
         
     var body: some View {
         ZStack {
-            if Date() > timerManager.endTime + 1 {
+            if Date() > timerManager.endTime {
                 CompletionView()
             } else {
                 // MARK: Background
