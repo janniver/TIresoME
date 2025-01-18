@@ -12,56 +12,56 @@ struct PongView: View {
     @State private var isGameOver = false
     @State private var score = 0
     @State private var timer = Timer.publish(every: 0.016, on: .main, in: .common).autoconnect()
-    @Binding var isAlarmStopped: Bool
+    @State private var isAlarmStopped: Bool = false
 
     var paddleWidth: CGFloat = 120
     var paddleHeight: CGFloat = 20
         
     var body: some View {
         ZStack {
-            
-            Color.black.ignoresSafeArea(.all)
-            Text("\(5 - score)")
-                .foregroundColor(.white)
-                .font(.largeTitle)
-            
-            if !isGameOver {
-                Text("Score: \(score)")
-                    .foregroundColor(.orange)
-                    .font(.largeTitle)
-                    .position(x: screenWidth / 2, y: 50)
-                Circle()
-                    .fill(
-                        LinearGradient(
-                            gradient: Gradient(colors: [Color.orange, Color.purple]),
-                            startPoint: .leading,
-                            endPoint: .trailing
-                        )
-                    )
-                    .frame(width: 30, height: 30)
-                    .position(ballPosition)
-                
-                Rectangle()
-                .fill(Color.white)
-                .cornerRadius(20)
-                .frame(width: paddleWidth, height: paddleHeight)
-                .position(x: paddlePosition, y: screenHeight / 1.2)
-                
+            if isAlarmStopped {
+                ContentView()
             } else {
-                Button(score >= 5 ? "Stop Alarm" : "Try Again") {
-                    if score >= 5 {
-                        isAlarmStopped = true
-                    } else {
-                        resetGame()
+                Color.black.ignoresSafeArea(.all)
+                
+                if !isGameOver {
+                    Text("\(5 - score)")
+                        .font(.system(size: 150))
+                        .bold()
+                        .foregroundColor(.white)
+                    Circle()
+                        .fill(
+                            LinearGradient(
+                                gradient: Gradient(colors: [Color.orange, Color.purple]),
+                                startPoint: .leading,
+                                endPoint: .trailing
+                            )
+                        )
+                        .frame(width: 30, height: 30)
+                        .position(ballPosition)
+                    
+                    Rectangle()
+                        .fill(Color.white)
+                        .cornerRadius(20)
+                        .frame(width: paddleWidth, height: paddleHeight)
+                        .position(x: paddlePosition, y: screenHeight / 1.2)
+                    
+                } else {
+                    Button(score >= 5 ? "Stop Alarm" : "Try Again") {
+                        if score >= 5 {
+                            isAlarmStopped = true
+                        } else {
+                            resetGame()
+                        }
                     }
+                    .fontWeight(.semibold)
+                    .font(.title2)
+                    .padding(.horizontal, 24)
+                    .padding(.vertical, 8)
+                    .background(.thinMaterial)
+                    .cornerRadius(20)
+                    .foregroundColor(.white)
                 }
-                .fontWeight(.semibold)
-                .font(.title2)
-                .padding(.horizontal, 24)
-                .padding(.vertical, 8)
-                .background(.thinMaterial)
-                .cornerRadius(20)
-                .foregroundColor(.white)
             }
         }
         .gesture(DragGesture()
@@ -116,5 +116,5 @@ struct PongView: View {
 }
 
 #Preview {
-    PongView(isAlarmStopped: .constant(false))
+    PongView()
 }

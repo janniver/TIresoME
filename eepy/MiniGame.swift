@@ -25,9 +25,9 @@ enum MiniGame: Hashable {
         case .tapCounter:
             TapCounterView()
         case .wordle:
-            WordleView(isAlarmStopped: isAlarmStopped)
+            WordleView()
         case .pong:
-            PongView(isAlarmStopped: isAlarmStopped)
+            PongView()
         case .circleTap:
             CircleTapView()
         }
