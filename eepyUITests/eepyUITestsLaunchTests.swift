@@ -1,13 +1,13 @@
 //
-//  TIresoMEUITestsLaunchTests.swift
-//  TIresoMEUITests
+//  eepyUITestsLaunchTests.swift
+//  eepyUITests
 //
 //  Created by Kailash Gautham on 18/1/25.
 //
 
 import XCTest
 
-final class TIresoMEUITestsLaunchTests: XCTestCase {
+final class eepyUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
