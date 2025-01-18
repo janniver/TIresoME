@@ -11,10 +11,10 @@ struct KeyButtonView: View {
       switch key {
       case "<":
         Image(systemName: "delete.backward")
-              .foregroundStyle(.white)
+              .foregroundStyle(.orange)
       case ">":
         Image(systemName: "return")
-              .foregroundStyle(.white)
+              .foregroundStyle(.purple)
       default:
         Text(key)
           .aspectRatio(1.0, contentMode: .fit)
@@ -23,10 +23,6 @@ struct KeyButtonView: View {
       }
     }
     .padding(6)
-    .background {
-      RoundedRectangle(cornerRadius: 5.0)
-        .stroke(.white, lineWidth: 1)
-    }
     .foregroundColor(Color(UIColor.label))
   }
 }

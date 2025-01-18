@@ -10,11 +10,13 @@ struct GuessBoxView: View {
       .foregroundColor(.white)
       .bold()
       .frame(width: size, height: size)
-      .background(letter.statusColor)
+      .background(.clear)
       .cornerRadius(size / 5.0)
       .overlay(
-        RoundedRectangle(cornerRadius: size / 5.0)
-              .stroke(.white, lineWidth: 3)
+        Rectangle()
+            .frame(height: 5)
+            .foregroundColor(letter.statusColor)
+            .padding(.top, size - 2)
       )
   }
 }

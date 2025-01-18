@@ -10,8 +10,10 @@ struct EmptyBoxView: View {
         .frame(width: size, height: size)
         .cornerRadius(size / 5.0)
         .overlay(
-          RoundedRectangle(cornerRadius: size / 5.0)
-                .stroke(.white, lineWidth: 3)
+            Rectangle()
+                .frame(height: 2)
+                .foregroundColor(.gray)
+                .padding(.top, size - 2)
         )
   }
 }
