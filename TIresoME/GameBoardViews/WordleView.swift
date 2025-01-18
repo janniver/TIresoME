@@ -7,10 +7,7 @@ struct WordleView: View {
 
     var body: some View {
         if game.status == .won {
-            func foo() async {
-                try await Task.sleep(nanoseconds: UInt64(1.5 * Double(NSEC_PER_SEC)))
-                WordleWinView()
-            }
+            WordleWinView()
         } else if game.status == .lost {
 //            WordleLoseView()
         } else {
