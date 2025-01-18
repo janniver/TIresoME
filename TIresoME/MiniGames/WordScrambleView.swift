@@ -11,64 +11,64 @@ struct WordScrambleView: View {
     @State private var word = "APPLE"
     @State private var scrambledWord = ""
     @State private var userAnswer: String = ""
-    @State private var message: String = ""
+    @State private var isGameOver = false
     @Binding var isAlarmStopped: Bool
 
     var body: some View {
         ZStack {
             Color.black.ignoresSafeArea()
 
-            VStack(spacing: 20) {
-                Spacer()
-
-                Text("Unscramble the word:")
-                    .font(.headline)
+            if isGameOver {
+                VStack {
+                    Button("Stop Alarm") {
+                        isAlarmStopped = true
+                    }
+                    .fontWeight(.semibold)
+                    .font(.title2)
+                    .padding(.horizontal, 24)
+                    .padding(.vertical, 8)
+                    .background(.thinMaterial)
+                    .cornerRadius(20)
                     .foregroundColor(.white)
+                }
+            } else {
+                VStack(spacing: 20) {
+                    Spacer()
 
-                Text(scrambledWord)
-                    .font(.largeTitle)
-                    .bold()
-                    .foregroundColor(.white)
+                    Text("Unscramble the word:")
+                        .font(.headline)
+                        .foregroundColor(.white)
 
-                TextField("Type your answer here", text: $userAnswer)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding()
+                    Text(scrambledWord)
+                        .font(.largeTitle)
+                        .bold()
+                        .foregroundColor(.white)
 
-                if !message.contains("Correct") {
+                    TextField("Type your answer here", text: $userAnswer)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding()
+
                     Button("Submit") {
                         checkAnswer()
                     }
-                    .font(.title2)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]), startPoint: .leading, endPoint: .trailing))
+                    .fontWeight(.semibold)
+                    .padding(.horizontal, 24)
+                    .padding(.vertical, 8)
+                    .cornerRadius(20)
                     .foregroundColor(.white)
-                    .cornerRadius(15)
-                    .padding(.horizontal, 40)
+                    .background(
+                        RoundedRectangle(cornerRadius: 20)
+                            .fill(
+                                LinearGradient(
+                                    gradient: Gradient(colors: [Color.orange, Color.purple]),
+                                    startPoint: .leading,
+                                    endPoint: .trailing
+                                )
+                            )
+                    )
+
+                    Spacer()
                 }
-
-                if !message.isEmpty {
-                    Text(message)
-                        .font(.title3)
-                        .foregroundColor(message.contains("Correct") ? .green : .orange)
-                        .multilineTextAlignment(.center)
-                        .padding()
-
-                    if message.contains("Correct") {
-                        Button("Stop Alarm") {
-                            isAlarmStopped = true // Notify the parent view to stop the alarm
-                        }
-                        .font(.title2)
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]), startPoint: .leading, endPoint: .trailing))
-                        .foregroundColor(.white)
-                        .cornerRadius(15)
-                        .padding(.horizontal, 40)
-                    }
-                }
-
-                Spacer()
             }
         }
         .onAppear {
@@ -81,14 +81,12 @@ struct WordScrambleView: View {
         word = words.randomElement()!
         scrambledWord = String(word.shuffled())
         userAnswer = ""
-        message = ""
+        isGameOver = false
     }
 
     func checkAnswer() {
         if userAnswer.uppercased() == word {
-            message = "Correct! Congrats. You are awake."
-        } else {
-            message = "Try Again!"
+            isGameOver = true
         }
     }
 }

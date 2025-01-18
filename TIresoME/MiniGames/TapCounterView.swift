@@ -1,6 +1,6 @@
 //
 //  TapCounterView.swift
-//  itsallsotiresome
+//  eepy
 //
 //  Created by Ivan on 18/1/25.
 //
@@ -8,89 +8,73 @@
 import SwiftUI
 
 struct TapCounterView: View {
-    @State private var tapCount = 0
-    @State private var targetTaps = Int.random(in: 15...25)
+    @State private var tapsRemaining = Int.random(in: 15...25) // Start with target taps
     @State private var timeRemaining = 10
     @State private var isGameOver = false
-    @State private var resultMessage = ""
+    @State private var isSuccessful = false
     @Binding var isAlarmStopped: Bool // Binding to communicate with parent view
 
     var body: some View {
         ZStack {
             Color.black.ignoresSafeArea()
 
-            VStack(spacing: 20) {
+            VStack(spacing: 45) {
                 Spacer()
 
                 if isGameOver {
-                    Text(resultMessage)
-                        .font(.title2)
-                        .foregroundColor(resultMessage.contains("Congrats") ?
-                            Color.green :
-                            Color.orange)
-                        .multilineTextAlignment(.center)
-                        .padding()
-
-                    Button(resultMessage.contains("Congrats") ? "Stop Alarm" : "Try Again") {
-                        if resultMessage.contains("Congrats") {
-                            isAlarmStopped = true // Notify parent that the alarm is stopped
+                    Button(isSuccessful ? "Stop Alarm" : "Try Again") {
+                        if isSuccessful {
+                            isAlarmStopped = true
                         } else {
                             resetGame()
                         }
                     }
-                    .font(.title3)
                     .fontWeight(.semibold)
+                    .font(.title2)
                     .padding(.horizontal, 24)
                     .padding(.vertical, 8)
+                    .background(.thinMaterial)
                     .cornerRadius(20)
                     .foregroundColor(.white)
-                    .background(
-                        RoundedRectangle(cornerRadius: 20)
-                            .fill(
-                                LinearGradient(
-                                    gradient: Gradient(colors: [
-                                        Color.orange,
-                                        Color.purple
-                                    ]),
-                                    startPoint: .leading,
-                                    endPoint: .trailing
-                                )
-                            )
-                    )
+//                    .background(
+//                        RoundedRectangle(cornerRadius: 20)
+//                            .fill(
+//                                LinearGradient(
+//                                    gradient: Gradient(colors: [Color.orange, Color.purple]),
+//                                    startPoint: .leading,
+//                                    endPoint: .trailing
+//                                )
+//                            )
+//                    )
                 } else {
-                    Text("Target: \(targetTaps) taps")
-                        .font(.title2)
-                        .foregroundColor(.white)
-
-                    Text("Taps: \(tapCount)")
-                        .font(.largeTitle)
+                    Text("\(tapsRemaining)")
+                        .font(.system(size: 150))
+                        .bold()
                         .foregroundColor(.white)
 
                     Text("Time Remaining: \(timeRemaining)s")
                         .font(.title2)
                         .foregroundColor(Color.orange)
 
-                    Button("Tap Me!") {
-                        tapCount += 1
+                    Button(" ") {
+                        tapsRemaining -= 1
                     }
-                    .font(.title3)
                     .fontWeight(.semibold)
+                    .font(.title2)
                     .padding(.horizontal, 24)
                     .padding(.vertical, 8)
                     .cornerRadius(20)
                     .foregroundColor(.white)
                     .background(
-                        RoundedRectangle(cornerRadius: 20)
+                        Circle()
                             .fill(
                                 LinearGradient(
-                                    gradient: Gradient(colors: [
-                                        Color.orange,
-                                        Color.purple
-                                    ]),
+                                    gradient: Gradient(colors: [Color.orange, Color.purple]),
                                     startPoint: .leading,
                                     endPoint: .trailing
                                 )
                             )
+                            .frame(width: 55, height: 55)
                     )
                 }
 
@@ -107,18 +91,16 @@ struct TapCounterView: View {
             } else {
                 timer.invalidate()
                 isGameOver = true
-                resultMessage = tapCount == targetTaps ?
-                    "Congrats. You are awake." :
-                    "Wake up! Clearly you are still asleep 😴"
+                isSuccessful = tapsRemaining == 0
             }
         }
     }
 
     func resetGame() {
-        tapCount = 0
-        targetTaps = Int.random(in: 15...25)
+        tapsRemaining = Int.random(in: 15...25)
         timeRemaining = 10
         isGameOver = false
+        isSuccessful = false
         startTimer()
     }
 }

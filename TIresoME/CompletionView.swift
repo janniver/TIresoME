@@ -35,15 +35,16 @@ struct CompletionView: View {
 
     var defaultContent: some View {
         VStack {
-            Text("Time's Up!")
-                .font(.largeTitle)
-                .padding()
+//            Text("Time's Up!")
+//                .font(.largeTitle)
+//                .padding()
 
             Button {
                 selectedGame = miniGames.randomElement()
             } label: {
-                Text("Stop")
+                Text("Play Game")
                     .fontWeight(.semibold)
+                    .font(.title2)
                     .padding(.horizontal, 24)
                     .padding(.vertical, 8)
                     .background(.thinMaterial)

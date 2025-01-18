@@ -30,6 +30,7 @@ struct ContentView: View {
             } label: {
                 Text(timerManager.timerDuration.rawValue)
                     .fontWeight(.semibold)
+                    .font(.title3)
                     .padding(.horizontal, 24)
                     .padding(.vertical, 8)
                     .background(.thinMaterial)
@@ -72,7 +73,7 @@ struct ContentView: View {
                 timerManager.toggleTimerState()
             } label: {
                 Text(timerManager.timerState == .running ? "Stop Alarm" : "Start Sleep")
-                    .font(.title3)
+                    .font(.title2)
                     .fontWeight(.semibold)
                     .padding(.horizontal, 24)
                     .padding(.vertical, 8)
