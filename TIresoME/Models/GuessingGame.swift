@@ -104,10 +104,8 @@ class GuessingGame: ObservableObject {
     }
     
     if targetWord == guesses[currentGuess].letters {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            self.status = .won
-        }
-      return
+        self.status = .won
+        return
     }
     
     if currentGuess < guessesAllowed - 1 {

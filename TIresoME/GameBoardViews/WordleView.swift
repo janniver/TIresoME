@@ -9,7 +9,7 @@ struct WordleView: View {
         if game.status == .won {
             WordleWinView()
         } else if game.status == .lost {
-//            WordleLoseView()
+            WordleLoseView()
         } else {
             VStack {
               Text("WordGuessr")
