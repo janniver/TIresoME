@@ -1,13 +1,12 @@
-# Eepy: The Evil Alarm Clock
+# *eepy*: The Evil Alarm Clock
+ *eepy* is an innovative alarm clock iOS app designed to make sure you're fully awake by the time you stop your alarm. To turn off the alarm, users must complete engaging and challenging mini-games. Say goodbye to snoozing and hello to productivity!
 
-Eepy is an innovative alarm clock iOS app designed to make sure you're fully awake by the time you stop your alarm. To turn off the alarm, users must complete engaging and challenging mini-games. Say goodbye to snoozing and hello to productivity!
-
-![alt text](eepy-demo.gif)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kXXF7_j0hzw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Features
 
-### 🎮 Mini-Games to Wake You Up
-Eepy includes a variety of fun and challenging mini-games to stimulate your brain and get you moving:
+### 🎮 Mini-Games to Wake You Up 
+*eepy* includes a variety of fun and challenging mini-games to stimulate your brain and get you moving:
 - **Circle Tap**: Tap the circle as fast as you can.
 - **Pong**: Play a quick round of the classic Pong game.
 - **Slider Match**: Align the slider to match the target position.
@@ -15,8 +14,8 @@ Eepy includes a variety of fun and challenging mini-games to stimulate your brai
 - **Wordle**: Solve a word puzzle in limited attempts.
 - **Word Scramble**: Unscramble the letters to form the correct word.
 
-### 🎨 Intuitive Design
-Eepy features a user-friendly and visually appealing interface, making it simple to set up and use.
+### 🎨 Intuitive Design 
+*eepy* features a user-friendly and visually appealing interface, making it simple to set up and use.
 
 ## How It Works
 1. **Set an Alarm**: Choose your wake-up time in 30 min interval.
@@ -25,25 +24,23 @@ Eepy features a user-friendly and visually appealing interface, making it simple
 
 ## Installation
 
-To install and run Eepy on your iOS device:
+To install and run *eepy* on your iOS device:
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/eepy.git
+   git clone https://github.com/yourusername eepy.git
    ```
 2. Open the project in Xcode.
 3. Build and run the app on a simulator or a physical device.
 
 ## Tech Stack
-
-Eepy leverages the following technologies:
+ *eepy* leverages the following technologies:
 - **Language**: Swift
 - **Framework**: SwiftUI
 - **IDE**: Xcode
 - **Version Control**: Git
 
 ## Development
-
-Eepy is written in Swift and uses SwiftUI for its user interface. The app's modular design makes it easy to add or modify mini-games.
+ *eepy* is written in Swift and uses SwiftUI for its user interface. The app's modular design makes it easy to add or modify mini-games.
 
 ### Key Files
 - **`ContentView.swift`**: The main entry point of the app.
@@ -59,7 +56,7 @@ Eepy is written in Swift and uses SwiftUI for its user interface. The app's modu
 
 ## Contribution
 
-We welcome contributions to make Eepy even better! To contribute:
+We welcome contributions to make *eepy* even better! To contribute:
 1. Fork the repository.
 2. Create a new branch for your feature or bug fix:
    ```bash
@@ -80,4 +77,4 @@ We welcome contributions to make Eepy even better! To contribute:
 
 ---
 
-Get ready to wake up like never before with Eepy, the alarm clock that ensures you're wide awake and ready to conquer the day!
+Get ready to wake up like never before with *eepy*, the alarm clock that ensures you're wide awake and ready to conquer the day!
