@@ -83,7 +83,7 @@ struct SliderMatchView: View {
                             .padding(.horizontal, 40)
                             .overlay(
                                 LinearGradient(
-                                    gradient: Gradient(colors: [.red, .blue]),
+                                    gradient: Gradient(colors: [.orange, .purple]),
                                     startPoint: .leading,
                                     endPoint: .trailing
                                 )
