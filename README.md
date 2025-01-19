@@ -28,7 +28,7 @@ Eepy features a user-friendly and visually appealing interface, making it simple
 To install and run Eepy on your iOS device:
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/eepy.git
+   git clone https://github.com/janniver/eepy.git
    ```
 2. Open the project in Xcode.
 3. Build and run the app on a simulator or a physical device.
