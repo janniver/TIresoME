@@ -11,7 +11,7 @@ struct PongView: View {
     
     @State private var paddlePosition = CGFloat(UIScreen.main.bounds.width / 2)
     @State private var isGameOver = false
-    @State private var score = 0
+    @State private var target = 5
     @State private var timer = Timer.publish(every: 0.016, on: .main, in: .common).autoconnect()
     @State private var isAlarmStopped: Bool = false
 
@@ -29,7 +29,7 @@ struct PongView: View {
                 Color.black.ignoresSafeArea(.all)
                 
                 if !isGameOver {
-                    Text("\(5 - score)")
+                    Text("\(target)")
                         .font(.system(size: 150))
                         .bold()
                         .foregroundColor(.white)
@@ -51,8 +51,8 @@ struct PongView: View {
                         .position(x: paddlePosition, y: screenHeight / 1.2)
                     
                 } else {
-                    Button(score >= 5 ? "Stop Alarm" : "Try Again") {
-                        if score >= 5 {
+                    Button(target <= 0 ? "Stop Alarm" : "Try Again") {
+                        if target <= 0 {
                             isAlarmStopped = true
                         } else {
                             resetGame()
@@ -94,11 +94,12 @@ struct PongView: View {
         }
 
         if ballPosition.y >= screenHeight / 1.2 - 20 &&
+            ballPosition.y <= screenHeight / 1.2 - 10 &&
             ballPosition.x >= paddlePosition - paddleWidth / 2 &&
             ballPosition.x <= paddlePosition + paddleWidth / 2 {
             ballVelocity.y *= -1
-            score += 1
-            if score >= 5 {
+            target -= 1
+            if target <= 0 {
                 isGameOver = true
             }
         }
@@ -114,7 +115,7 @@ struct PongView: View {
         ballVelocity = CGPoint(x: 6, y: 6)
         paddlePosition = CGFloat(UIScreen.main.bounds.width / 2)
         isGameOver = false
-        score = 0
+        target = 5
         timer = Timer.publish(every: 0.016, on: .main, in: .common).autoconnect()
     }
 }
