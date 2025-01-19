@@ -29,20 +29,44 @@ struct TapCounterView: View {
                 
                 VStack(spacing: 45) {
                     if isGameOver {
-                        Button(isSuccessful ? "Stop Alarm" : "Try Again") {
-                            if isSuccessful {
-                                isAlarmStopped = true
-                            } else {
-                                resetGame()
+                        if isSuccessful {
+                            ZStack {
+                                LinearGradient(
+                                    gradient: Gradient(colors: [Color.orange, Color.purple]),
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                )
+                                .ignoresSafeArea()
+                                .blur(radius: 10)
+
+                                Button("Stop Alarm") {
+                                    isAlarmStopped = true
+                                }
+                                .fontWeight(.semibold)
+                                .font(.title2)
+                                .padding(.horizontal, 24)
+                                .padding(.vertical, 8)
+                                .background(.thinMaterial)
+                                .cornerRadius(20)
+                                .foregroundColor(.white)
+                                .opacity(0.8) // Adjusted opacity for better visibility
+                            }
+                        } else {
+                            ZStack {
+                                Color.black.ignoresSafeArea()
+
+                                Button("Try Again") {
+                                    resetGame()
+                                }
+                                .fontWeight(.semibold)
+                                .font(.title2)
+                                .padding(.horizontal, 24)
+                                .padding(.vertical, 8)
+                                .background(.thinMaterial)
+                                .cornerRadius(20)
+                                .foregroundColor(.white)
                             }
                         }
-                        .fontWeight(.semibold)
-                        .font(.title2)
-                        .padding(.horizontal, 24)
-                        .padding(.vertical, 8)
-                        .background(.thinMaterial)
-                        .cornerRadius(20)
-                        .foregroundColor(.white)
                     } else {
                         Text("\(tapsRemaining)")
                             .font(.system(size: 150))

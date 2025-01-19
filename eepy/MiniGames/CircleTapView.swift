@@ -1,6 +1,6 @@
 //
 //  CircleTap.swift
-//  TIresoME
+//  eepy
 //
 //  Created by Zhiyang Lu on 19/01/2025.
 //
@@ -39,19 +39,29 @@ struct CircleTapView: View {
                 .cornerRadius(20)
                 .foregroundColor(.white)
             } else if clicked > 5 {
-                Color.black.ignoresSafeArea()
-                Button("Stop Alarm") {
-                    completed = true
-                }
-                .fontWeight(.semibold)
-                .font(.title2)
-                .padding(.horizontal, 24)
-                .padding(.vertical, 8)
-                .background(.thinMaterial)
-                .cornerRadius(20)
-                .foregroundColor(.white)
-                .onAppear {
-                    timer?.invalidate()
+                ZStack {
+                    LinearGradient(
+                        gradient: Gradient(colors: [Color.orange, Color.purple]),
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    )
+                    .ignoresSafeArea()
+                    .blur(radius: 10)
+
+                    Button("Stop Alarm") {
+                        completed = true
+                    }
+                    .fontWeight(.semibold)
+                    .font(.title2)
+                    .padding(.horizontal, 24)
+                    .padding(.vertical, 8)
+                    .background(.thinMaterial)
+                    .cornerRadius(20)
+                    .foregroundColor(.white)
+                    .onAppear {
+                        timer?.invalidate()
+                    }
+                    .opacity(0.8)
                 }
             } else {
                 // MARK: Background
