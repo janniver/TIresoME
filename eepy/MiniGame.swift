@@ -16,7 +16,7 @@ enum MiniGame: Hashable {
     case circleTap
 
     @ViewBuilder
-    func getView(isAlarmStopped: Binding<Bool>) -> some View {
+    func getView() -> some View {
         switch self {
         case .sliderMatch:
             SliderMatchView()

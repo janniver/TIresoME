@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct WordScrambleView: View {
+    @EnvironmentObject var audioManager: AudioManager
+    
     @State private var chosenWord : String = ""
     @State private var words: Set<String> = Set()
     @State private var scrambledWord = ""
@@ -20,6 +22,9 @@ struct WordScrambleView: View {
         ZStack {
             if isAlarmStopped {
                 ContentView()
+                    .onAppear {
+                        audioManager.stopAlarm()
+                    }
             } else {
                 Color.black.ignoresSafeArea()
 
@@ -128,4 +133,5 @@ struct WordScrambleView: View {
 
 #Preview {
     WordScrambleView()
+        .environmentObject(AudioManager())
 }

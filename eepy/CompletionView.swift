@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CompletionView: View {
+    @EnvironmentObject var audioManager: AudioManager
     @State private var returnHome = false
     @State private var selectedGame: MiniGame?
     private let miniGames: [MiniGame] = [
@@ -15,6 +16,8 @@ struct CompletionView: View {
         .wordScramble,
         .tapCounter,
         .wordle,
+        .pong,
+        .circleTap,
     ]
 
     var body: some View {
@@ -25,7 +28,7 @@ struct CompletionView: View {
                 Color.black.ignoresSafeArea()
 
                 if let game = selectedGame {
-                    game.getView(isAlarmStopped: $returnHome)
+                    game.getView().environmentObject(audioManager)
                 } else {
                     defaultContent
                 }
@@ -57,4 +60,5 @@ struct CompletionView: View {
 
 #Preview {
     CompletionView()
+        .environmentObject(AudioManager())
 }

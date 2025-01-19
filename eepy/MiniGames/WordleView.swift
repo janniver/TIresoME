@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct WordleView: View {
+    @EnvironmentObject var audioManager: AudioManager
 
     @StateObject var game = GuessingGame()
     @State private var showStats = false
@@ -12,6 +13,9 @@ struct WordleView: View {
         ZStack {
             if isAlarmStopped {
                 ContentView()
+                    .onAppear {
+                        audioManager.stopAlarm()
+                    }
             } else {
                 Color.black.ignoresSafeArea()
 
@@ -53,6 +57,7 @@ struct WordleView: View {
 
 #Preview {
     WordleView()
+        .environmentObject(AudioManager())
 }
 
 

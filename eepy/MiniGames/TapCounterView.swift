@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct TapCounterView: View {
+    @EnvironmentObject var audioManager: AudioManager
+    
     @State private var tapsRemaining = Int.random(in: 15...25) // Start with target taps
     @State private var timeRemaining = 10
     @State private var isGameOver: Bool = false
@@ -19,6 +21,9 @@ struct TapCounterView: View {
         ZStack {
             if isAlarmStopped {
                 ContentView()
+                    .onAppear {
+                        audioManager.stopAlarm()
+                    }
             } else {
                 Color.black.ignoresSafeArea()
                 
@@ -95,4 +100,5 @@ struct TapCounterView: View {
 
 #Preview {
     TapCounterView()
+        .environmentObject(AudioManager())
 }

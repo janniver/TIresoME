@@ -1,4 +1,5 @@
 import SwiftUI
+import AVFoundation
 
 enum CurrentScreen {
   case alarmClock
@@ -6,12 +7,17 @@ enum CurrentScreen {
 }
 
 struct ContentView: View {
-    @StateObject var timerManager = TimerManager()
-        
+    @StateObject private var timerManager = TimerManager()
+    @StateObject private var audioManager = AudioManager()
+
     var body: some View {
         ZStack {
             if Date() > timerManager.endTime {
                 CompletionView()
+                    .environmentObject(audioManager)
+                    .onAppear {
+                        audioManager.playAlarm()
+                    }
             } else {
                 // MARK: Background
                 Color.black.ignoresSafeArea()
@@ -77,7 +83,6 @@ struct ContentView: View {
                     .fontWeight(.semibold)
                     .padding(.horizontal, 24)
                     .padding(.vertical, 8)
-//                    .background(.thinMaterial)
                     .cornerRadius(20)
                     .background(
                         RoundedRectangle(cornerRadius: 20)
@@ -87,7 +92,8 @@ struct ContentView: View {
             
         }
         .foregroundColor(.white)
-    }}
+    }
+}
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {

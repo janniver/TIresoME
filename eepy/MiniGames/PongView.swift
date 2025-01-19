@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct PongView: View {
+    @EnvironmentObject var audioManager: AudioManager
     
     @State private var ballPosition = CGPoint(x: 200, y: 300)
     @State private var ballVelocity = CGPoint(x: 4, y: 4)
@@ -21,6 +22,9 @@ struct PongView: View {
         ZStack {
             if isAlarmStopped {
                 ContentView()
+                    .onAppear {
+                        audioManager.stopAlarm()
+                    }
             } else {
                 Color.black.ignoresSafeArea(.all)
                 
@@ -117,4 +121,5 @@ struct PongView: View {
 
 #Preview {
     PongView()
+        .environmentObject(AudioManager())
 }

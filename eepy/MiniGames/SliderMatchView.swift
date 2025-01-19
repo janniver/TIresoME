@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SliderMatchView: View {
+    @EnvironmentObject var audioManager: AudioManager
+    
     @State private var targetValue = Int.random(in: 0...100)
     @State private var sliderValue: Double = 50
     @State private var timeRemaining = 10
@@ -19,6 +21,9 @@ struct SliderMatchView: View {
         ZStack {
             if isAlarmStopped {
                 ContentView()
+                    .onAppear {
+                        audioManager.stopAlarm()
+                    }
             } else {
                 Color.black.ignoresSafeArea()
                 
@@ -106,4 +111,5 @@ struct SliderMatchView: View {
 
 #Preview {
     SliderMatchView()
+        .environmentObject(AudioManager())
 }

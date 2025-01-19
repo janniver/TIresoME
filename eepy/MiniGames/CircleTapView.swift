@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CircleTapView: View {
+    @EnvironmentObject var audioManager: AudioManager
+    
     @State private var clicked: Int = 0
     @State private var missedClick = false
     @State private var timer: Timer?
@@ -21,6 +23,9 @@ struct CircleTapView: View {
         ZStack {
             if completed {
                 ContentView()
+                    .onAppear {
+                        audioManager.stopAlarm()
+                    }
             } else if missedClick {
                 Color.black.ignoresSafeArea()
                 Button("Try Again") {
@@ -106,4 +111,5 @@ struct CircleTapView: View {
 
 #Preview {
     CircleTapView()
+        .environmentObject(AudioManager())
 }
