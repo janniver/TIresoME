@@ -2,7 +2,7 @@
 
 Eepy is an innovative alarm clock iOS app designed to make sure you're fully awake by the time you stop your alarm. To turn off the alarm, users must complete engaging and challenging mini-games. Say goodbye to snoozing and hello to productivity!
 
-![alt text](eepy-demo.gif)
+https://github.com/user-attachments/assets/5ee0dc99-c2d5-446b-b209-2fe4f373301a
 
 ## Features
 
