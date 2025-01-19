@@ -94,7 +94,7 @@ struct PongView: View {
         }
 
         if ballPosition.y >= screenHeight / 1.2 - 20 &&
-            ballPosition.y <= screenHeight / 1.2 - 10 &&
+            ballPosition.y <= screenHeight / 1.2 &&
             ballPosition.x >= paddlePosition - paddleWidth / 2 &&
             ballPosition.x <= paddlePosition + paddleWidth / 2 {
             ballVelocity.y *= -1
