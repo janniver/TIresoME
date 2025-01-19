@@ -27,24 +27,45 @@ struct WordScrambleView: View {
                     }
             } else {
                 Color.black.ignoresSafeArea()
-
                 if isGameOver {
-                    VStack {
-                        Button(isCorrect ? "Stop Alarm" : "Try Again") {
-                            if isCorrect {
+                    if isCorrect {
+                        ZStack {
+                            LinearGradient(
+                                gradient: Gradient(colors: [Color.orange, Color.purple]),
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                            .ignoresSafeArea()
+                            .blur(radius: 10)
+
+                            Button("Stop Alarm") {
                                 isAlarmStopped = true
-                            } else {
+                            }
+                            .fontWeight(.semibold)
+                            .font(.title2)
+                            .padding(.horizontal, 24)
+                            .padding(.vertical, 8)
+                            .background(.thinMaterial)
+                            .cornerRadius(20)
+                            .foregroundColor(.white)
+                            .opacity(0.8)
+                        }
+                    } else {
+                        ZStack {
+                            Color.black.ignoresSafeArea()
+
+                            Button("Try Again") {
                                 isGameOver = false
                                 setupGame()
                             }
+                            .fontWeight(.semibold)
+                            .font(.title2)
+                            .padding(.horizontal, 24)
+                            .padding(.vertical, 8)
+                            .background(.thinMaterial)
+                            .cornerRadius(20)
+                            .foregroundColor(.white)
                         }
-                        .fontWeight(.semibold)
-                        .font(.title2)
-                        .padding(.horizontal, 24)
-                        .padding(.vertical, 8)
-                        .background(.thinMaterial)
-                        .cornerRadius(20)
-                        .foregroundColor(.white)
                     }
                 } else {
                     VStack(spacing: 60) {
@@ -77,11 +98,7 @@ struct WordScrambleView: View {
                                     LinearGradient(
                                         gradient: Gradient(colors: [Color.orange, Color.purple]),
                                         startPoint: .leading,
-                                        endPoint: .trailing
-                                    )
-                                )
-                        )
-
+                                        endPoint: .trailing)))
                         Spacer()
                     }
                 }
@@ -93,7 +110,6 @@ struct WordScrambleView: View {
     }
 
     func setupGame() {
-        
         guard
           let fileUrl = Bundle.main.url(forResource: "common-words-5", withExtension: "txt"),
           let fileContents = try? String(contentsOf: fileUrl, encoding: .utf8) else {

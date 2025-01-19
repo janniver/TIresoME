@@ -18,22 +18,43 @@ struct WordleView: View {
                     }
             } else {
                 Color.black.ignoresSafeArea()
+                if game.status == .won {
+                    ZStack {
+                        LinearGradient(
+                            gradient: Gradient(colors: [Color.orange, Color.purple]),
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                        .ignoresSafeArea()
+                        .blur(radius: 10)
 
-                if game.status == .won || game.status == .lost {
-                    Button(game.status == .won ? "Stop Alarm" : "Try Again") {
-                        if game.status == .won {
+                        Button("Stop Alarm") {
                             isAlarmStopped = true
-                        } else {
+                        }
+                        .fontWeight(.semibold)
+                        .font(.title2)
+                        .padding(.horizontal, 24)
+                        .padding(.vertical, 8)
+                        .background(.thinMaterial)
+                        .cornerRadius(20)
+                        .foregroundColor(.white)
+                        .opacity(0.8)
+                    }
+                } else if game.status == .lost {
+                    ZStack {
+                        Color.black.ignoresSafeArea()
+
+                        Button("Try Again") {
                             resetGame()
                         }
+                        .fontWeight(.semibold)
+                        .font(.title2)
+                        .padding(.horizontal, 24)
+                        .padding(.vertical, 8)
+                        .background(.thinMaterial)
+                        .cornerRadius(20)
+                        .foregroundColor(.white)
                     }
-                    .fontWeight(.semibold)
-                    .font(.title2)
-                    .padding(.horizontal, 24)
-                    .padding(.vertical, 8)
-                    .background(.thinMaterial)
-                    .cornerRadius(20)
-                    .foregroundColor(.white)
                 } else {
                     VStack {
                       GameBoardView(game: game)
@@ -59,6 +80,3 @@ struct WordleView: View {
     WordleView()
         .environmentObject(AudioManager())
 }
-
-
-
