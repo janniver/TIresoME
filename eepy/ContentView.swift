@@ -39,10 +39,11 @@ struct ContentView: View {
                     .font(.title3)
                     .padding(.horizontal, 24)
                     .padding(.vertical, 8)
-                    .background(.thinMaterial)
+                    .background(timerManager.timerState == .running ? .thinMaterial : .ultraThinMaterial)
                     .cornerRadius(20)
             }
             
+            .disabled(timerManager.timerState == .running)
             
             // MARK: Progress Ring
             
