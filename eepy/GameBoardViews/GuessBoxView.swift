@@ -14,7 +14,7 @@ struct GuessBoxView: View {
       .cornerRadius(size / 5.0)
       .overlay(
         Rectangle()
-            .frame(height: 5)
+            .frame(height: (letter.status == .unknown ? 2.0 : 5.0))
             .foregroundColor(letter.statusColor)
             .padding(.top, size - 2)
       )
